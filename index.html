@@ -1,10 +1,22 @@
+<!DOCTYPE html>
 <html>
-<head>
-<title>Jquery</title>
-</head>
-<body>
-    <script type="text/javascript">
-        alert("hola mundo!");
+  <head>
+    <meta charset="utf-8">
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+      $(document).ready(function (){
+        $('#prueba').text('Hola mundo');  //por selector css
+        $('.prueba').html('<h3>Titulo 3</h3>'); //para alterar clase css
+      });
     </script>
-</body>
+  </head>
+  <body>
+    <div class="prueba">
+
+    </div>
+    <div id="prueba">
+
+    </div>
+  </body>
 </html>
