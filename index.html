@@ -6,25 +6,34 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script>
       $(document).ready(function (){
-        $('div.prueba ul li').text("Mod");
-        $('div.prueba ul li,#parrafo2').text("Mod2");
+        var seleccion=$('.ejem1');
+        if(seleccion.length)
+          console.log('Existen '+seleccion.length);
+        else {
+          console.log('No existe el elemento seleccionado');
+        }
+        //seleccion.not('.cli').text('No tiene cli');
+        //seleccion.has('p').text('Holis');
+        $('li').first().html('Elemento 1');
+        $('li').eq(2).text('Elemento 2');
       });
     </script>
   </head>
   <body>
-    <div class="prueba">
-      <ul>
-        <li>uno</li>
-        <li>dos</li>
-      </ul>
-      <p id="parrafo2">
-
-      </p>
-    </div>
-    <div id="prueba">
-      <p id="parrafo1">
+    <div class="ejem1 cli">
+      <h1>ejem1 cli p</h1>
+      <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
+    </div>
+    <div class="ejem1">
+      <h1>ejem1 ul </h1>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
   </body>
 </html>
