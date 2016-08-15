@@ -6,21 +6,31 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script>
       $(document).ready(function (){
-        //getter
-        var id=$('#prueba').attr('id');
-        console.log("Id: "+id);
-        //setter
-        $('#prueba').attr("class","clase-add");
-        $('#prueba').attr("style","display:block");
+        //remover atributo
+        $('#prueba').removeAttr("class");
+        //agregar clase
+        $('#prueba').attr("class",function () {
+          var cadena="otra-clase";
+          return cadena;
+        });
+        $('#prueba').attr("class","clase-cambiada");
 
-
+        //Anuncio cuando para afuera
+        $('a').on("click",function (e) {
+          e.preventDefault();
+          var link= $(this).attr("href");
+          alert("Va pa fuera");
+          location.href=link;
+        })
       });
     </script>
   </head>
   <body>
-    <p id="parrafo">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-    <div id="prueba"></div>
+    <div id="prueba" class="clase">
+      <p id="parrafo">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <a href="https://google.com">Google</a>
+    </div>
   </body>
 </html>
