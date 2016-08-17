@@ -6,19 +6,23 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script>
       $(document).ready(function (){
-        //obtene siguiente
-        //console.log($('#prueba').next().text());
 
-        //obtener hijo
-        //console.log($('#padre').children().attr("id"));
+        //elimina espacios en blanco en cualquier lado
+        var s="              hola       ";
+        console.log(s);
+        console.log($.trim(s));
+        console.log(s);
+        
+        //var arreglo=['Batman','Aquaman','Cyborg','Flash'];
 
-        //hermanos
-        //console.log($('#primero').siblings());
-
-        $("ul li").each(function (index, elemento){
-          //como .text() es de Jquery se le antemano el $
-          console.log("index "+index+", elemento "+$(elemento).text());
-        });
+        //buscar en un arreglo
+        /*if($.inArray('Aquaman',arreglo) != -1)
+          console.log(arreglo[$.inArray('Aquaman',arreglo)]);
+        */
+        //recorrer arreglo
+        /*$.each(arreglo,function(index,element){
+          console.log("Index "+index+", elemento "+element);
+        });*/
       });
     </script>
   </head>
