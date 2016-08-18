@@ -5,29 +5,33 @@
     <title>Jquery</title>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <script>
+    var cont=0;
       $(document).ready(function (){
-
-        //elimina espacios en blanco en cualquier lado
-        var s="              hola       ";
-        console.log(s);
-        console.log($.trim(s));
-        console.log(s);
-        
-        //var arreglo=['Batman','Aquaman','Cyborg','Flash'];
-
-        //buscar en un arreglo
-        /*if($.inArray('Aquaman',arreglo) != -1)
-          console.log(arreglo[$.inArray('Aquaman',arreglo)]);
-        */
-        //recorrer arreglo
-        /*$.each(arreglo,function(index,element){
-          console.log("Index "+index+", elemento "+element);
-        });*/
+        //vincular eventos
+        $('#prueba').on({
+          'mouseover':function(){
+            $(this).css('background','#FFFF00');
+            cont++;
+          },
+          'mouseout':function() {
+            $(this).css('background','#ADD8E6');
+            console.log("se fue el mouse");
+            //desvincular evento
+            if(cont>=3)$(this).off('mouseover');
+          }
+        });
       });
     </script>
+    <style>
+      .clase{
+        background:#ADD8E6;
+        width:80%;
+        margin-left: 80px;
+      }
+    </style>
   </head>
   <body>
-    <div id="prueba" class="clase">
+    <div id="prueba" class="clase" >
       <article id="padre">
         Part1
         <div id="test">
