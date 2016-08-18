@@ -7,23 +7,31 @@
     <script>
     var cont=0;
       $(document).ready(function (){
-        /*Efectos ocultar mostrar*/
+        //crear velocidades
+        $.fx.speeds.lentoooo=2000;
+        $.fx.speeds.rapidooo=10;
+
+        /*Efectos ocultar mostrar
         var elem=$("#div1");
         $("#btn1").click(function () {
           elem.show();
         });
         $("#btn2").click(function () {
           elem.hide();
-        });
-/*Efectos con fade
+        });*/
+
+//Efectos con fade
           var elem=$("#div1");
           $("#btn1").click(function () {
-            elem.fadeIn();//slow | fast o pueden ir milisegundos
+            elem.fadeIn('lentoooo');//slow | fast o pueden ir milisegundos
           });
           $("#btn2").click(function () {
-            elem.fadeOut();
+            elem.fadeOut('rapidooo',function(){
+              $('body').append("se oculto");
+              //$(this).remove();
+            });
           });
-          */
+
       })
     </script>
     <style>
