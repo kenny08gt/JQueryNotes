@@ -7,42 +7,33 @@
     <script>
     var cont=0;
       $(document).ready(function (){
-        //vincular eventos
-        $('#prueba').on({
-          'mouseover':function(){
-            $(this).css('background','#FFFF00');
-            cont++;
-          },
-          'mouseout':function() {
-            $(this).css('background','#ADD8E6');
-            console.log("se fue el mouse");
-            //desvincular evento
-            if(cont>=3)$(this).off('mouseover');
+        $("#miInput").on("cambio",function () {
+          if(this.checked){
+            $("#miInput").removeAttr("checked");
+            $(".clase").text("Encender");
+          }else{
+            $("#miInput").attr("checked","checked");
+            $(".clase").text("Apagar");
           }
         });
+        $('.clase').on("click",function () {
+          $("#miInput").trigger("cambio");
+        })
       });
     </script>
     <style>
       .clase{
-        background:#ADD8E6;
-        width:80%;
-        margin-left: 80px;
+        background:#ADD8E6;                
       }
     </style>
   </head>
   <body>
-    <div id="prueba" class="clase" >
-      <article id="padre">
-        Part1
-        <div id="test">
-          hijo1
-        </div>
-      </article>
-    </div>
-    <ul>
-      <li id="primero">First</li>
-      <li>Second</li>
-      <li>Third</li>
-    </ul>
+      <input type="checkbox" id="miInput" checked="checked">
+      <button class="clase">
+        Apagar
+      </button>
+      <button class="clase">
+        Apagar
+      </button>
   </body>
 </html>
