@@ -7,33 +7,37 @@
     <script>
     var cont=0;
       $(document).ready(function (){
-        $("#miInput").on("cambio",function () {
-          if(this.checked){
-            $("#miInput").removeAttr("checked");
-            $(".clase").text("Encender");
-          }else{
-            $("#miInput").attr("checked","checked");
-            $(".clase").text("Apagar");
-          }
+        /*Efectos ocultar mostrar*/
+        var elem=$("#div1");
+        $("#btn1").click(function () {
+          elem.show();
         });
-        $('.clase').on("click",function () {
-          $("#miInput").trigger("cambio");
-        })
-      });
+        $("#btn2").click(function () {
+          elem.hide();
+        });
+/*Efectos con fade
+          var elem=$("#div1");
+          $("#btn1").click(function () {
+            elem.fadeIn();//slow | fast o pueden ir milisegundos
+          });
+          $("#btn2").click(function () {
+            elem.fadeOut();
+          });
+          */
+      })
     </script>
     <style>
       .clase{
-        background:#ADD8E6;                
+        background:#ADD8E6;
       }
     </style>
   </head>
   <body>
-      <input type="checkbox" id="miInput" checked="checked">
-      <button class="clase">
-        Apagar
-      </button>
-      <button class="clase">
-        Apagar
-      </button>
+
+      <button  id="btn1">Mostrar</button>
+      <button  id="btn2">Ocultar</button>
+      <div id="div1" class="clase">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
   </body>
 </html>
