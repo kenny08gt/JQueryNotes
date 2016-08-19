@@ -11,6 +11,7 @@
         var met=$('#main form').attr('method');
         //obtener valores individuales
         //var nom=document.fo.nombre.value;
+        //y mandarlo en data como un json
         $('#main form').on('submit',function (e) {
           e.preventDefault();
           $.ajax({
@@ -27,7 +28,7 @@
               $('#status').html('<strong>Exito</strong>');
               console.log(resp);
             },
-            error: function (jqXHR,estado,error ){
+            error: function (jqXHR,estado,error ){              
               $('#status').html('<strong>Error</strong>');
               console.log(estado);
               console.log(error);
