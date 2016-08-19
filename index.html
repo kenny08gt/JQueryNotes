@@ -4,47 +4,39 @@
     <meta charset="utf-8">
     <title>Jquery</title>
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="Jquery.animate-colors.js" charset="utf-8"></script>
     <script>
     var cont=0;
       $(document).ready(function (){
-        //crear velocidades
-        $.fx.speeds.lentoooo=2000;
-        $.fx.speeds.rapidooo=10;
-
-        /*Efectos ocultar mostrar
-        var elem=$("#div1");
-        $("#btn1").click(function () {
-          elem.show();
+        $("#div1").animate({
+          marginBottom:0,
+        },3000,function(){
+          $("#div1").animate({
+            backgroundColor: '#008000',
+            marginTop: 100
+          })
         });
-        $("#btn2").click(function () {
-          elem.hide();
-        });*/
-
-//Efectos con fade
-          var elem=$("#div1");
-          $("#btn1").click(function () {
-            elem.fadeIn('lentoooo');//slow | fast o pueden ir milisegundos
-          });
-          $("#btn2").click(function () {
-            elem.fadeOut('rapidooo',function(){
-              $('body').append("se oculto");
-              //$(this).remove();
-            });
-          });
-
       })
     </script>
     <style>
-      .clase{
+      #div1{
         background:#ADD8E6;
+        margin-left: 100px;
+        margin-bottom: 400px;
+        margin-right: 100px;
+      }
+      #div2{
+        background: #90EE90;
+        margin-left: 100px;
+        margin-right: 100px;
       }
     </style>
   </head>
   <body>
-
-      <button  id="btn1">Mostrar</button>
-      <button  id="btn2">Ocultar</button>
       <div id="div1" class="clase">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+      <div id="div2" class="clase2">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </div>
   </body>
