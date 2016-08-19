@@ -7,37 +7,37 @@
     <script src="spin.min.js" charset="utf-8"></script>
     <script>
       $(document).ready(function (){
+        //METODO GET
+        //va a traer el contenido de la pagina sin parametro
+        $.get('hola.html',function(data) {
+          $('#main').html(data);
+        })
+        //va a traer el contido de la pagin con parametro get
+        //1er parametro archivo
+        //2do parametro parametros del archivo
+        $.get('hola.php',{nombre:"MiNombre"},function(data) {
+          $('#main').html(data);
+        })
+
+        //METODO POST
+        $.post('pagina.html',function () {
+
+        })
+
         var pet=$('#main form').attr('action');
-        var met=$('#main form').attr('method');
-        //obtener valores individuales
-        //var nom=document.fo.nombre.value;
-        //y mandarlo en data como un json
-        $('#main form').on('submit',function (e) {
-          e.preventDefault();
-          $.ajax({
-            beforeSend:function () {
-              var spinner = new Spinner().spin();
+        var info=$('#main form').serialize();
+        $.post(pet,info,function (respuesta,estado,jqXHR) {
+          console.log(respuesta);
+          console.log(estado);
+          console.log(jqXHR);
+        })
+        //usando sus funciones des jqXHR
+        $.post(pet,info).error(function () {
 
-              $('#status').append(spinner.el);
-
-            },
-            url: pet,
-            type: met,
-            data: $('#main form').serialize(),
-            success: function (resp) {
-              $('#status').html('<strong>Exito</strong>');
-              console.log(resp);
-            },
-            error: function (jqXHR,estado,error ){              
-              $('#status').html('<strong>Error</strong>');
-              console.log(estado);
-              console.log(error);
-            },
-            complete:function (jqXHR,estado) {
-              console.log(estado);
-            },
-            timeout:10000
-          });
+        }).success(function (respuesta,estado,jqXHR) {
+          console.log(respuesta);
+          console.log(estado);
+          console.log(jqXHR);
         })
       })
     </script>
@@ -52,18 +52,7 @@
   </head>
   <body>
       <div id="main">
-        <h1>Formulario de contacto</h1>
-        <form action="peticion.php" method="post" name="fo">
-          <input type="text" name="nombre" placeholder="nombre..." required>
-          <input type="email" name="email" required>
-          <textarea name="mensaje" required></textarea>
-          <div style="display:block;width:60%;margin:0 auto">
-            <input type="submit" name="send" value="Enviar">
-            <div id="status">
 
-            </div>
-          </div>
-        </form>
       </div>
   </body>
 </html>
