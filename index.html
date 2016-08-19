@@ -7,37 +7,16 @@
     <script src="spin.min.js" charset="utf-8"></script>
     <script>
       $(document).ready(function (){
-        //METODO GET
-        //va a traer el contenido de la pagina sin parametro
-        $.get('hola.html',function(data) {
-          $('#main').html(data);
-        })
-        //va a traer el contido de la pagin con parametro get
-        //1er parametro archivo
-        //2do parametro parametros del archivo
-        $.get('hola.php',{nombre:"MiNombre"},function(data) {
-          $('#main').html(data);
-        })
+        //cargar script dinamicamente
+        $.getScript('direccion al script',function () {
+          //si cargo el scrip, ya se puede usar
+        });
 
-        //METODO POST
-        $.post('pagina.html',function () {
-
-        })
-
-        var pet=$('#main form').attr('action');
-        var info=$('#main form').serialize();
-        $.post(pet,info,function (respuesta,estado,jqXHR) {
-          console.log(respuesta);
-          console.log(estado);
-          console.log(jqXHR);
-        })
-        //usando sus funciones des jqXHR
-        $.post(pet,info).error(function () {
-
-        }).success(function (respuesta,estado,jqXHR) {
-          console.log(respuesta);
-          console.log(estado);
-          console.log(jqXHR);
+        //obtiene un json y lo recorre
+        $.getJSON('ruta',info,function (resp) {
+          $.each(resp,function (clave,valor) {
+            console.log(c+" => "+v);
+          })
         })
       })
     </script>
